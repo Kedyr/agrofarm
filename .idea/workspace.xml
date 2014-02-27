@@ -2,10 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="984a856e-902f-4c46-aaf3-603d32cafba0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/vendor/backbone-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/models/constants.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/controller/constants.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dbScript.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/lib/handlebars.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/lib/iscroll.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/vendor/jquery-1.8.2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/lib/jquery-1.8.2.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/vendor/json2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/load.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/models/localstorage.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/model/products/product.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/models/product.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/views/productadd.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/controller/products.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/views/productview.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/controller/profile.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/vendor/require.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/views/searchResults.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/vendor/underscore-min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/models/userProfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/model/mysql/wrapper.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agrofarm" afterPath="$PROJECT_DIR$/agrofarm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agrofarm/app/inde.html" afterPath="$PROJECT_DIR$/agrofarm/app/inde.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/agrofarm/app/index.html" afterPath="$PROJECT_DIR$/agrofarm/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AgroFarm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,6 +105,16 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="AgroFarm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AgroFarm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AgroFarm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
