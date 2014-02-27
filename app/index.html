@@ -1,15 +1,56 @@
 <html>
+<head>
+<script src="lib/jquery-1.8.2.min.js"></script>
+<script data-main="js/load" src="js/vendor/require.js"></script>
+</head>
 <body>
 
-<div class='header'><h1>Home</h1></div>
-<div class='search-view'>
-<input class='search-key' type="text"/>
-<ul class='employee-list'></ul>
-</div>
+<div id="topMenu">
+ 	<a href="#addproduct">Add product</a>
+ 	<a href="#search">search to buy</a>
+ </div>
 
-<script src="lib/jquery-1.8.2.min.js"></script>
-<script src="js/storage/memory-store.js"></script>
-<script src="js/main.js"></script>
+<div id="pageArea">
+</div>
 
 </body>
 </html>
+
+<script type="text/template" id="search_template">
+  <input type="text" id="search_input" />
+  <input type="button" id="search_button" value="Search" />
+</script>
+
+<script type="text/template" id="addproduct_template">
+  <label>Name</label> 
+  <input type="text" id="prdt_name" />
+  <label>Description</label>
+  <input type="text" id="prdt_description" />
+  <label>Price. UGX</label>
+  <input type="text" id="prdt_price" />
+  <label>Quantity</label>
+  <input type="text" id="prdt_qty" />
+  <label>Phone-Contact</label>
+  <input type="text" id="prdt_contact" />
+  <label>Location</label>
+  <input type="text" id="prdt_location" />
+  <input type="button" id="addPdtBtn" value="Add" />
+</script>
+
+<script type="text/template" class="search_reslt_product">
+  <div><a href="#/product/<%= id %>"><%= name %></a></div>
+  <span>Qty: <%= quantity %> </span> <span>Price: <%= price %> </span> <span>Loc: <%= location %> </span>
+</script>
+
+<script type="text/template" id="product_template">
+  <span>Name : <%= name %> </span>
+  <span>Description : <%= description %> </span>
+  <span>Price : <%= price %> </span>
+  <span>Quantity : <%= qty %> </span>
+  <span>Contact : <%= contact %> </span>
+  <span>Location : <%= location %> </span>
+</script>
+
+<script type="text/javascript">
+require(["views/searchResults","views/productview","views/productadd"],function(){});
+</script>
