@@ -57,10 +57,11 @@ CREATE TABLE `products` (
   `productOwner` int(11) DEFAULT NULL,
   `quantity` varchar(45) DEFAULT NULL,
   `location` varchar(45) DEFAULT NULL,
+  `phoneContact` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`product_id`),
   KEY `fk_profile_id_idx` (`productOwner`),
   CONSTRAINT `fk_profile_id` FOREIGN KEY (`productOwner`) REFERENCES `profile` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +70,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-REPLACE INTO `products` VALUES (1,'222','222',222,1,'box',NULL),(2,'22','test',0,1,'1',NULL);
+REPLACE INTO `products` VALUES (1,'222','222',222,1,'box',NULL,NULL),(2,'22','test',0,1,'1',NULL,NULL),(3,'666','6666',666,NULL,'666666','66',66666),(4,'666','666',6666,NULL,'666','666',666),(5,'666','666',6666,NULL,'666','666',666),(6,'666','666',6666,NULL,'666','666',666),(7,'77777373','737373',737373,NULL,'37373','737373',373733),(8,'yryryryryr','yeyeyeye',746446,NULL,'6646464','dhdhdhdd',47474747),(9,'wwwwtwtwtw','rwerererer',5555,NULL,'55555','trttrr',5555555);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,4 +91,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-26 23:08:20
+-- Dump completed on 2014-02-27 11:09:47
