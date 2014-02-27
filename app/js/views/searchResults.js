@@ -2,7 +2,7 @@ require(["jquery", "underscore", "backbone", "models/product", "models/localstor
 	var product = new Product();
 
 	var SearchView = Backbone.View.extend({
-		initialize: function() {
+		initialize: function() { //BUG a page refresh redirects here
 			this.render();
 		},
 		render: function() {
@@ -10,7 +10,7 @@ require(["jquery", "underscore", "backbone", "models/product", "models/localstor
 			this.$el.html(template);
 		},
 		events: {
-			"click input[type=button]": "searchProducts"
+			"click input#search_button": "searchProducts"
 		},
 		searchProducts: function(event) {
 			var searchItem = $("#search_input").val();

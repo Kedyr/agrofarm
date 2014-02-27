@@ -5,15 +5,18 @@ define(['backbone', "models/constants"], function(Backbone, Constants) {
 			description: "",
 			quantity: "",
 			price: "",
-			ownerPhone: ""
+			phoneContact: "",
+            location:""
 		},
-		save: function(productDetails,CallbackFunction) {
+		saveProduct: function(productDetails,callbackFunction) {
 			 $.ajax({
                  url:  Constants.productsUrl(),
                  async: true,
                  dataType: 'json',
-                 success: function(productDetails,callbackFunction) {
-                 	callbackFunction("hello");
+                 type: 'POST',
+                 data:{'product':productDetails,'function':'save'},
+                 success: function(response) {
+                 	callbackFunction(response);
                  }
              });
 		},

@@ -13,7 +13,7 @@ define(function() {
 				return protocol + "//" + host_name + "/";
 		},
 		productsUrl:function(){
-			return this.determineSiteUrl() + "search.php";
+			return this.determineSiteUrl() + "products.php";
 		},
 		userProfileUrl:function(){
 			return this.determineSiteUrl() + "profile.php";

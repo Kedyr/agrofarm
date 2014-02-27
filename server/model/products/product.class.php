@@ -1,13 +1,14 @@
 <?php
-namespace model\products;
+namespace model\product;
 
-class Products
+class Product
 {
 	var $name;
 	var $description;
 	var $price;
 	var $ownerPhone;
 	var $quantity;
+	var $location;
 
 	function setName($name){
 		$this->name = $name;
@@ -35,6 +36,13 @@ class Products
 	}
 	function getPrice(){
 		return $this->price;
+	}
+
+	function setLocation($loc){
+		$this->location = $loc;
+	}
+	function getLocation(){
+		return $this->location;
 	}
 
 	function setOwnerPhone($ownerPhone){

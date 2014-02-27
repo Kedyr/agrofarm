@@ -23,7 +23,7 @@ require(["jquery", "backbone", "models/localstorage"], function($, Backbone, Loc
 			productProperties.name = product.name;
 			productProperties.price = product.price;
 			productProperties.qty = product.quantity;
-			productProperties.contact = product.ownerPhone;
+			productProperties.contact = product.phoneContact;
 			productProperties.description = product.description; 
 			productProperties.location = product.location;
 
