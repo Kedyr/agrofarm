@@ -10,7 +10,7 @@ define(function() {
 			if (host === "localhost:1234")
 				return protocol + "//" + "localhost:1234/farm/server/controller/";
 			else //we are assuming that it is online 
-				return protocol + "//" + host_name + "/";
+				return protocol + "//" + host_name + "/server/controller/";
 		},
 		productsUrl:function(){
 			return this.determineSiteUrl() + "products.php";
