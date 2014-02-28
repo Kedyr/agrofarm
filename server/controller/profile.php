@@ -44,7 +44,7 @@ class UserProfile
 	$phoneNumber = "44";
 	if(!$profile->profileExists($phoneNumber))
 	{
-		$profile->insertProfile("2");
+		//$profile->insertProfile("2");
 		print array('success'=>0);
 	}
 	else
