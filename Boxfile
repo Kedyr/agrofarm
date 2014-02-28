@@ -5,6 +5,7 @@ web1:
     - mysqli
     - curl
     - mcrypt
+    - pdo
 db1: 
   name: agrofarm
   type: mysql
