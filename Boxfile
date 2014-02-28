@@ -1,0 +1,10 @@
+web1: 
+  name: nena
+  php_extensions: 
+    - mysql
+    - mysqli
+    - curl
+    - mcrypt
+db1: 
+  name: agrofarm
+  type: mysql
