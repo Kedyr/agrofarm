@@ -36,9 +36,11 @@ class Products
 			    $product->setName( $row['name']);
 			    $product->setDescription( $row['description']);
 			    $product->setPrice( $row['price']);
-			    $product->setOwnerPhone( $row['phoneContact']);
+			    $product->setPhoneContact( $row['phoneContact']);
 			    $product->setQuantity( $row['quantity']);
 			    $product->setLocation( $row['location']);
+			    $product->setContactName( $row['contactName'] );
+			    $product->setUploadedTime( $row['dateUploaded'] );
 
 			    $products[$count] = $product;
 			    $count ++;
@@ -58,8 +60,9 @@ class Products
 		$prodts[3] = $product['quantity'];
 		$prodts[4] = $product['phoneContact'];
 		$prodts[5] = $product['location'];
+		$prodts[6] = $product['contactName'];
 
-		$sql_string = "insert into products (name,price,description,quantity,phoneContact,location) values (?,?,?,?,?,?)";
+		$sql_string = "insert into products (name,price,description,quantity,phoneContact,location,contactName) values (?,?,?,?,?,?,?)";
 		$records =  $this->db_connection->select($sql_string,$prodts);
 		$rows_affected = $records->rowCount();
 		if($rows_affected > 0)
@@ -80,6 +83,7 @@ class Products
 
 	if($function == 'search')
 	{
+		$search_item = trim($search_item);
 	    $results =  $product->searchProducts($search_item);
 	    print json_encode($results);
 	}

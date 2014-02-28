@@ -6,7 +6,8 @@ define(['backbone', "models/constants"], function(Backbone, Constants) {
 			quantity: "",
 			price: "",
 			phoneContact: "",
-            location:""
+            location:"",
+            contactName:""
 		},
 		saveProduct: function(productDetails,callbackFunction) {
 			 $.ajax({
@@ -28,7 +29,7 @@ define(['backbone', "models/constants"], function(Backbone, Constants) {
                  type: 'POST',
                  data:{'limit':20, 'itemName':productName,'function':'search'},
                  success: function(responseData ) {
-                 	 callbackFunction(responseData);
+                 	 callbackFunction(responseData,productName);
                  }
              });
 		}

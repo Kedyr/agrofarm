@@ -1,10 +1,11 @@
 require.config({
-	paths: {
-	    json2: 'vendor/json2',
+  paths: {
+      json2: 'vendor/json2',
       backbone: "vendor/backbone-min",
       underscore: "vendor/underscore-min",
       jquery : "vendor/jquery-1.8.2.min",
-	},
+      bootstrap : "vendor/bootstrap.min",
+  },
   shim: {
       underscore: {
           exports: "_",
@@ -13,11 +14,12 @@ require.config({
       backbone: {
           deps: ["underscore"],
           exports: "Backbone"
-      }
+      },
+      bootstrap:{deps:["jquery"]}
     },
-	waitSeconds: 30
+  waitSeconds: 30
 });
-require(["jquery","underscore","backbone",'json2'], function($,_,Backbone) {
+require(["jquery","underscore","backbone",'json2',"bootstrap"], function($,_,Backbone) {
 
 
 });

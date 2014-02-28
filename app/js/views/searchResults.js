@@ -1,4 +1,4 @@
-require(["jquery", "underscore", "backbone", "models/product", "models/localstorage"], function($, _, Backbone, Product, LocalStorage) {
+require(["jquery", "underscore", "backbone", "models/product", "models/localstorage","views/productAddView"], function($, _, Backbone, Product, LocalStorage,productAddView) {
 	var product = new Product();
 
 	var SearchView = Backbone.View.extend({
@@ -10,15 +10,19 @@ require(["jquery", "underscore", "backbone", "models/product", "models/localstor
 			this.$el.html(template);
 		},
 		events: {
-			"click input#search_button": "searchProducts"
+			"click button#search_button": "searchProducts"
 		},
 		searchProducts: function(event) {
-			var searchItem = $("#search_input").val();
-			product.search(searchItem, this.drawSearchResults);
+			var searchItem = $("#search_input").val(); 
+			if(searchItem == "")
+				$("#search_input").focus();
+			else
+				product.search(searchItem, this.drawSearchResults); 
 		},
-		drawSearchResults: function(searchResponse) {
+		drawSearchResults: function(searchResponse,searchItem) { 
+			var productResults = "";  
 			if (searchResponse.success == 1)
-				console.log("no results");
+				productResults = "<li>There were no results for the search item :: "+ searchItem + "</li>";
 			else {
 				LocalStorage.clearAll();
 
@@ -27,19 +31,25 @@ require(["jquery", "underscore", "backbone", "models/product", "models/localstor
 				_.each(data, function(_product) {
 					var prodt = new Product(_product);
 
-					productProperties = {};
+					var productProperties = {};
 					productProperties.name = _product.name;
 					productProperties.price = _product.price;
 					productProperties.location = _product.location;
 					productProperties.quantity = _product.quantity;
+					productProperties.description = _product.description.trunc(60,true);
 					productProperties.id = count;
 					var template = _.template($(".search_reslt_product").html(), productProperties);
-					this.$('#pageArea').append(template);
+					productResults += template;
 
 					LocalStorage.store(count, prodt);//store product in localstorage
 					count++;
 				});
 			}
+			var productsProperties = {};
+			productsProperties.productresults = productResults;
+			productsProperties.search_item = searchItem;
+			var template = _.template($(".search_reslt_products").html(),productsProperties);
+			this.$('#pageArea').html(template);
 		}
 
 	});
@@ -61,5 +71,13 @@ require(["jquery", "underscore", "backbone", "models/product", "models/localstor
 	router.on('route:searchProducts', function() {
 		search_view.render();
 	});
+
+	String.prototype.trunc =
+     function(n,useWordBoundary){
+         var toLong = this.length>n,
+             s_ = toLong ? this.substr(0,n-1) : this;
+         s_ = useWordBoundary && toLong ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
+         return  toLong ? s_ + '&hellip;' : s_;
+      };
 
 });

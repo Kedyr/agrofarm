@@ -1,0 +1,53 @@
+body{
+	background:url(../img/Yearni.jpg)  no-repeat center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+ 	background-size: cover;
+ 	background-position: center;
+ 	background-size: 100% 100%;
+	font-family: 'Open Sans', sans-serif;
+	  color: #3E454C;
+}
+
+#logo{ 
+ color: #3E454C;
+display: inline-block;
+font: 500 40px/40px 'Open Sans',Arial,Helvetica,sans-serif;
+margin: 0 0 14px;
+transition: all 0.35s ease 0s;
+text-align: left;
+}
+
+a{color: #036809;}
+a:hover{color: #11AA1B;}
+.nav_links a{font: 500 16px/16px 'Open Sans',Arial,Helvetica,sans-serif;}
+.nav_links{margin-top:20px;}
+.nav_links .nav{padding-left: 25%;}
+.header{margin-top: 1.5%;}
+.searchpage{margin-top: 10%;}
+ .btn-lg {
+    font-weight: bold;
+    padding: 10px 60px;
+}
+.productresults ul li{
+	list-style: none;
+	padding-bottom:20px;
+}
+.productresults ul li a{
+	font: 300 18px/18px 'Open Sans',Arial,Helvetica,sans-serif;
+	margin: 0 0 14px;
+	text-decoration: underline;
+}
+.productresults{padding:20px 20px 20px 20px;}
+.prdtAttribute{color:#009A57;}
+.prdtTtle{
+	color: #3E454C;
+display: inline-block;
+font: 100 25px/25px 'Open Sans',Arial,Helvetica,sans-serif;
+margin: 0 0 20px;
+transition: all 0.35s ease 0s;
+text-align: left;
+}
+.table-responsive table{border: none;}
+.table-responsive {border: none;}

@@ -1,56 +1,212 @@
+<!DOCTYPE html>
 <html>
 <head>
-<script src="lib/jquery-1.8.2.min.js"></script>
-<script data-main="js/load" src="js/vendor/require.js"></script>
+  <title>AgroFarm</title>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+     <link href="css/style.css" rel="stylesheet">
+
+    <script src="lib/jquery-1.8.2.min.js"></script>
+    <script data-main="js/load" src="js/vendor/require.js"></script>
 </head>
 <body>
 
-<div id="topMenu">
- 	<a href="#addproduct">Add product</a>
- 	<a href="#search">search to buy</a>
- </div>
 
 <div id="pageArea">
 </div>
 
-</body>
-</html>
 
 <script type="text/template" id="search_template">
-  <input type="text" id="search_input" />
-  <input type="button" id="search_button" value="Search" />
+  <div class="container">
+      <div class="jumbotron searchpage">
+           <div class="topMenu">
+             <div id="logo" class="text-muted">AgroFarm</div>
+           </div>
+            <div class="input-group">
+                <input id="search_input" type="text" class="form-control">
+                <span class="input-group-btn">
+                     <button  id="search_button" class="btn btn-default" type="button">Search!</button>
+                </span>
+          </div>
+          <div class="nav_links">
+              <ul class="nav nav-pills ">
+                <li><a href="#addproduct">Add product</a></li>
+            </ul>
+          </div>
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
 </script>
 
 <script type="text/template" id="addproduct_template">
-  <label>Name</label> 
-  <input type="text" id="prdt_name" />
-  <label>Description</label>
-  <input type="text" id="prdt_description" />
-  <label>Price. UGX</label>
-  <input type="text" id="prdt_price" />
-  <label>Quantity</label>
-  <input type="text" id="prdt_qty" />
-  <label>Phone-Contact</label>
-  <input type="text" id="prdt_contact" />
-  <label>Location</label>
-  <input type="text" id="prdt_location" />
-  <input type="button" id="addPdtBtn" value="Add" />
+  <div class="container">
+    <div class="header nav_links">
+      <ul class="nav nav-pills pull-right">
+        <li><a href="#search">Search to buy</a></li>
+        <li><a href="#addproduct">Add product</a></li>
+      </ul>
+     <div id="logo" class="text-muted">AgroFarm</div>
+    </div>
+      <div class="jumbotron">
+       <span class="prdtTtle">Add new product</span>
+        <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label for="prdt_name" class="col-sm-2 control-label">Product Name *</label>
+                <div class="col-sm-5">
+                  <input class="form-control"  type="text" id="prdt_name">
+              </div>
+            </div>
+        <div class="form-group">
+          <label for="prdt_description" class="col-sm-2 control-label">Description </label>
+                <div class="col-sm-5">
+                  <textarea class="form-control" rows="3" id="prdt_description"></textarea>
+                </div>
+        </div>
+        <div class="form-group">
+          <label for="prdt_price" class="col-sm-2 control-label">Price *</label>
+                <div class="col-sm-5">
+                  <input class="form-control" type="number" id="prdt_price">
+                </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Quantity *</label>
+                <div class="col-sm-5">
+                  <input class="form-control" type="text" id="prdt_qty">
+                </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Phone-Contact *</label>
+                <div class="col-sm-5">
+                  <input class="form-control" type="number" id="prdt_contact">
+              </div>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-2 control-label">Contact Name</label>
+                  <div class="col-sm-5">
+                    <input class="form-control" type="text" id="prdt_contactName">
+                  </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Location *</label>
+                  <div class="col-sm-5">
+                    <input class="form-control" type="text" id="prdt_location">
+                  </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                  <button type="button" class="btn-lg btn btn-primary" id="addPdtBtn">Add</button>
+            </div>
+        </div>
+          </form>
+    </div>
+
+  </div>
+</script>
+
+<script type="text/template" id="addproduct_templateResponse">
+  <div class="container">
+    <div class="header nav_links">
+      <ul class="nav nav-pills pull-right">
+        <li><a href="#search">Search to buy</a></li>
+      </ul>
+     <div id="logo" class="text-muted">AgroFarm</div>
+    </div>
+      <div class="jumbotron">
+         <div class="prdtTtle">Add new product</div>
+         <div> <%= prdtaddResponse %> </div>
+      </div>
+  </div>
 </script>
 
 <script type="text/template" class="search_reslt_product">
-  <div><a href="#/product/<%= id %>"><%= name %></a></div>
-  <span>Qty: <%= quantity %> </span> <span>Price: <%= price %> </span> <span>Loc: <%= location %> </span>
+  <li class="product">
+      <div class="prdtName"><a href="#/product/<%= id %>"><%= name %></a></div>
+      <span class="prdtDesc"> <%= description %> </span> <br/>
+      <span class="prdtAttribute">Location:</span> <%= location %> <span class="prdtAttribute">Price: UGX</span> <%= price %> 
+  </li>
+</script>
+
+<script type="text/template" class="search_reslt_products">
+<div class="container">
+    <div class="header nav_links">
+      <ul class="nav nav-pills pull-right">
+        <li><a href="#addproduct">Add product</a></li>
+      </ul>
+     <div id="logo" class="text-muted">AgroFarm</div>
+    </div>
+     <div class="jumbotron">
+          <div class="input-group">
+                <input value="<%= search_item %> " type="text" class="form-control">
+                <span class="input-group-btn">
+                     <button  id="search_button" class="btn btn-default" type="button">Search!</button>
+                </span>
+          </div>
+          <div class="productresults">
+            <ul>
+              <%= productresults %> 
+            </ul>
+          </div>
+     </div>
+</div>
 </script>
 
 <script type="text/template" id="product_template">
-  <span>Name : <%= name %> </span>
-  <span>Description : <%= description %> </span>
-  <span>Price : <%= price %> </span>
-  <span>Quantity : <%= qty %> </span>
-  <span>Contact : <%= contact %> </span>
-  <span>Location : <%= location %> </span>
+  <div class="container">
+    <div class="header nav_links">
+      <ul class="nav nav-pills pull-right">
+        <li><a href="#addproduct">Add product</a></li>
+        <li><a href="#search">Search to buy</a></li>
+      </ul>
+       <div id="logo" class="text-muted">AgroFarm</div>
+    </div>
+      <div class="jumbotron">
+            <div class="productAttributes">
+              <div class="table-responsive">
+              <span class="prdtTtle"><%=name %></span>
+                <table class="table">
+                  <tbody>
+                      <tr>
+                        <td> Description</td>
+                        <td><%= description %> </td>
+                      </tr>
+                      <tr>
+                        <td> Price</td>
+                        <td><%= price %> </td>
+                      </tr>
+                      <tr>
+                        <td> Quantity</td>
+                        <td>UGX:<%= qty %> </td>
+                      </tr>
+                      <tr>
+                        <td> Contact-Phone</td>
+                        <td><%= contact %> </td>
+                      </tr>
+                      <tr>
+                        <td> Contact-Name</td>
+                        <td><%= contactName %> </td>
+                      </tr>
+                      <tr>
+                        <td> Location</td>
+                        <td><%= location %> </td>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+
 </script>
 
-<script type="text/javascript">
-require(["views/searchResults","views/productview","views/productadd"],function(){});
-</script>
+     <script type="text/javascript">
+      require(["views/searchResults","views/productview","views/productAddView"],function(){});
+     </script>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+</body>
+</html>
+

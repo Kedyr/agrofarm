@@ -6,9 +6,11 @@ class Product
 	var $name;
 	var $description;
 	var $price;
-	var $ownerPhone;
+	var $phoneContact;
 	var $quantity;
 	var $location;
+	var $contactName;
+	var $uploadedTime;
 
 	function setName($name){
 		$this->name = $name;
@@ -17,11 +19,25 @@ class Product
 		$this->name = $name;
 	}
 
+	function setUploadedTime($uploadedTime){
+		$this->uploadedTime = $uploadedTime;
+	}
+	function getUploadedTime(){
+		return $this->uploadedTime;
+	}
+
+	function setContactName($contactName){
+		$this->contactName = $contactName;
+	}
+	function getContactName(){
+		return $this->contactName;
+	}
+
 	function setQuantity($quantity){
 		$this->quantity = $quantity;
 	}
-	function getQuantity($quantity){
-		$this->quantity = $quantity;
+	function getQuantity(){
+		return $this->quantity;
 	}
 
 	function setDescription($desc){
@@ -45,11 +61,11 @@ class Product
 		return $this->location;
 	}
 
-	function setOwnerPhone($ownerPhone){
-		$this->ownerPhone = $ownerPhone;
+	function setPhoneContact($phoneContact){
+		$this->phoneContact = $phoneContact;
 	}
-	function getOwnerPhone(){
-		return $this->ownerPhone;
+	function getPhoneContact(){
+		return $this->phoneContact;
 	}
 
 }

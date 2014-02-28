@@ -26,6 +26,8 @@ require(["jquery", "backbone", "models/localstorage"], function($, Backbone, Loc
 			productProperties.contact = product.phoneContact;
 			productProperties.description = product.description; 
 			productProperties.location = product.location;
+			productProperties.contactName = product.contactName;
+			productProperties.dateUploaded = product.dateUploaded;
 
 			var template = _.template($("#product_template").html(), productProperties);
 			this.$el.html(template);

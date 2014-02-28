@@ -11,15 +11,15 @@ require(["jquery", "backbone", "models/localstorage","models/product"], function
 	});
 
 
-	var ProductAdd = Backbone.View.extend({
+	var ProductAddView = Backbone.View.extend({
 		render: function() {
 			var template = _.template($("#addproduct_template").html(), {});
 			this.$el.html(template);
 		},
 		events: {
-			"click input#addPdtBtn": "addProduct"
+			"click button#addPdtBtn": "addProduct"
 		},
-		addProduct :function(){
+		addProduct :function(){ 
 			//add code
 			var prdt_name = $("#prdt_name").val();
 			if(prdt_name.length < 2 ){
@@ -47,6 +47,8 @@ require(["jquery", "backbone", "models/localstorage","models/product"], function
 				$("#prdt_location").focus();
 				return;
 			}
+			var prdt_contactName = $("#prdt_contactName").val();
+
 			var product = new Product();
 			var _product = {
 					name:prdt_name,
@@ -54,19 +56,24 @@ require(["jquery", "backbone", "models/localstorage","models/product"], function
 					quantity:prdt_qty,
 					price:prdt_price,
 					phoneContact:prdt_contact,
-					location:prdt_location
+					location:prdt_location,
+					contactName: prdt_contactName
 				};
 
 			product.saveProduct(_product,function(response){
+				var feedback = {};
 				if(response.success == 0)
-					console.log("success");
+					feedback.prdtaddResponse = "product was added succesfully";
 				else
-					console.log("failure");
+					feedback.prdtaddResponse = "An error occured when adding the product";
+
+				var template = _.template($("#addproduct_templateResponse").html(), feedback);
+					this.$("#pageArea").html(template);
 			}); 
 		}
 	});
 
-	var productAdd = new ProductAdd({
+	var productAdd = new ProductAddView({
 		el: $("#pageArea")
 	});
 
