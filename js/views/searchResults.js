@@ -6,7 +6,8 @@ require(["jquery", "underscore", "backbone", "models/product", "models/localstor
 		initialize: function() { //BUG a page refresh redirects here
 			this.render();
 		},
-		render: function() {
+		render: function() { 
+			location.replace("#search");
 			var template = _.template($("#search_template").html(), {})
 			this.$el.html(template);
 		},

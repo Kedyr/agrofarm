@@ -15,9 +15,29 @@
     <script data-main="js/load" src="js/vendor/require.js"></script>
 </head>
 <body>
+<noscript>Please enable javascript on your browser!</noscript>
 
-
-<div id="pageArea">
+<div id="pageArea"> <!-- body below is to prevent empty content display due to js failure-->
+      <div class="container">
+      <div class="jumbotron searchpage">
+           <div class="topMenu">
+             <div id="logo" class="text-muted">AgroFarm</div>
+           </div>
+           <div class="row nav-links">
+              <div class="col-xs-4  vwAllprdts"><a class="btn btn-primary btn-sm " href="#allproducts">View all Products</a></div>
+              <div class="col-xs-5 col-xs-offset-3  left"><a class="btn btn-primary btn-sm "  href="#addproduct">Add Product</a></div>
+          </div>
+            <div class="row">
+              <div class="col-xs-12 prdtTtle searchPage">Search for a Product</div>
+            </div>
+            <div class="input-group">
+                <input id="search_input" type="text" class="form-control">
+                <span class="input-group-btn">
+                     <button  id="search_button" class="btn btn-default" type="button">Search!</button>
+                </span>
+          </div>
+        </div>
+    </div>
 </div>
 
 
@@ -165,7 +185,7 @@
 <div class="container">
     <div class="header nav_links">
       <ul class="nav nav-pills pull-right">
-        <li><a href="#search">Search to buy</a></li>
+        <li><a class="btn btn-primary btn-sm" href="#search">Search to buy</a></li>
         <li><a class="btn btn-primary btn-sm " href="#addproduct">Add product</a></li>
       </ul>
       <div id="logo" class="text-muted">AgroFarm</div>
@@ -188,8 +208,10 @@
   <div class="container">
     <div class="header nav_links">
       <ul class="nav nav-pills pull-right">
-        <li><a href="#addproduct">Add product</a></li>
-        <li><a href="#search">Search to buy</a></li>
+        <li><a class="btn btn-primary btn-sm" href="#search">Search to buy</a></li>
+        <li><a class="btn btn-primary btn-sm " href="#allproducts">View all Products</a></li>
+        <li><a class="btn btn-primary btn-sm " href="#addproduct">Add product</a></li>
+      </ul>
       </ul>
        <div id="logo" class="text-muted">AgroFarm</div>
     </div>
