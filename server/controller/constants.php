@@ -3,9 +3,9 @@ namespace controller;
 
 class Constants
 {
-	const MYSQL_HOST = "tunnel.pagodabox.com";
-	const MYSQL_USERNAME = "randa";
-	const MYSQL_PASSWORD = "o7eZYdJE";
-	const MYSQL_DATABASENAME = "agrofarm";
+	const MYSQL_HOST = "localhost";
+	const MYSQL_USERNAME = "kedyr";
+	const MYSQL_PASSWORD = "kedyr54";
+	const MYSQL_DATABASENAME = "farm";
 }
 ?>

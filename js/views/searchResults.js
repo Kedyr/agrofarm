@@ -2,6 +2,7 @@ require(["jquery", "underscore", "backbone", "models/product", "models/localstor
 	var product = new Product();
 
 	var SearchView = Backbone.View.extend({
+		pageResults:15,
 		initialize: function() { //BUG a page refresh redirects here
 			this.render();
 		},
@@ -14,19 +15,22 @@ require(["jquery", "underscore", "backbone", "models/product", "models/localstor
 		},
 		searchProducts: function(event) {
 			var searchItem = $("#search_input").val(); 
-			if(searchItem == "")
+			if((searchItem == "")||(typeof(searchItem)=="undefined"))
 				$("#search_input").focus();
 			else
 				product.search(searchItem, this.drawSearchResults); 
 		},
-		drawSearchResults: function(searchResponse,searchItem) { 
+		viewAllProducts:function(){
+			product.viewAll(this.drawSearchResults); 
+		},
+		drawSearchResults: function(searchResponse,searchItem,searchAll) { //searchAll noolean to indiicate wether call was made to search all products or just one product
 			var productResults = "";  
 			if (searchResponse.success == 1)
 				productResults = "<li>There were no results for the search item :: "+ searchItem + "</li>";
 			else {
 				LocalStorage.clearAll();
 
-				var data = searchResponse.data;
+				var data = searchResponse.data; 
 				var count = 1;
 				_.each(data, function(_product) {
 					var prodt = new Product(_product);
@@ -48,7 +52,12 @@ require(["jquery", "underscore", "backbone", "models/product", "models/localstor
 			var productsProperties = {};
 			productsProperties.productresults = productResults;
 			productsProperties.search_item = searchItem;
-			var template = _.template($(".search_reslt_products").html(),productsProperties);
+
+			if(searchAll==true)
+				var template = _.template($(".all_products").html(),productsProperties);
+			else
+				var template = _.template($(".search_reslt_products").html(),productsProperties);
+
 			this.$('#pageArea').html(template);
 		}
 
@@ -64,12 +73,16 @@ require(["jquery", "underscore", "backbone", "models/product", "models/localstor
 
 	var Router = Backbone.Router.extend({
 		routes: {
-			"search": "searchProducts"
+			"search": "searchProducts",
+			"allproducts" : "viewAllproducts"
 		}
 	});
 	var router = new Router;
 	router.on('route:searchProducts', function() {
 		search_view.render();
+	});
+	router.on('route:viewAllproducts', function() {
+		search_view.viewAllProducts();
 	});
 
 	String.prototype.trunc =

@@ -16,7 +16,6 @@ display: inline-block;
 font: 500 40px/40px 'Open Sans',Arial,Helvetica,sans-serif;
 margin: 0 0 14px;
 transition: all 0.35s ease 0s;
-text-align: left;
 }
 
 a{color: #036809;}
@@ -25,7 +24,10 @@ a:hover{color: #11AA1B;}
 .nav_links{margin-top:20px;}
 .nav_links .nav{padding-left: 25%;}
 .header{margin-top: 1.5%;}
-.searchpage{margin-top: 10%;}
+.searchpage{
+	margin-top: 5%;
+    padding-top: 20px;
+}
  .btn-lg {
     font-weight: bold;
     padding: 10px 60px;
@@ -39,7 +41,7 @@ a:hover{color: #11AA1B;}
 	margin: 0 0 14px;
 	text-decoration: underline;
 }
-.productresults{padding:20px 20px 20px 20px;}
+.productresults{padding:20px 20px 20px 20px;background-color: #eee;}
 .prdtAttribute{color:#009A57;}
 .prdtTtle{
 	color: #3E454C;
@@ -51,3 +53,21 @@ text-align: left;
 }
 .table-responsive table{border: none;}
 .table-responsive {border: none;}
+
+.jumbotron{background:rgba(160, 159, 159, 0.58);}
+
+.topMenu{text-align: center;}
+.searchPage{margin: 0 0 0px;}
+.nav-links{padding-bottom: 5%;}
+.btn-sm {padding: 10px 50px;font-size: 14px;}
+.btn-primary{  background-color: #3E454C; border-color: #3E454C; }
+.btn-sm:hover, .btn-primary:hover,  .btn-primary:active{background-color: #11AA1B; border-color: #11AA1B;}
+.vwAllprdts{padding-left: 5%;}
+.nav>li>a:focus,.nav>li>a:hover,.nav>li>a:active{background-color: #11AA1B;}
+
+@media (max-width: 460px) { 
+	.nav>li>a {padding: 2px 2px; }
+	.nav_links .nav {padding-bottom: 20px;}
+	.btn-sm {padding: 0px 0px;}
+}
+

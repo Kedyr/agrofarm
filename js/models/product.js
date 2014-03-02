@@ -27,11 +27,23 @@ define(['backbone', "models/constants"], function(Backbone, Constants) {
                  async: true,
                  dataType: 'json',
                  type: 'POST',
-                 data:{'limit':20, 'itemName':productName,'function':'search'},
+                 data:{'itemName':productName,'function':'search'},
                  success: function(responseData ) {
-                 	 callbackFunction(responseData,productName);
+                 	 callbackFunction(responseData,productName,false);
                  }
              });
-		}
+		},
+        viewAll:function(callbackFunction){
+            $.ajax({
+                 url:  Constants.productsUrl(),
+                 async: true,
+                 dataType: 'json',
+                 type: 'POST',
+                 data:{'function':'allProducts'},
+                 success: function(responseData ) {
+                     callbackFunction(responseData,"",true);
+                 }
+             });
+        }
 	});
 });

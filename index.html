@@ -27,16 +27,18 @@
            <div class="topMenu">
              <div id="logo" class="text-muted">AgroFarm</div>
            </div>
+           <div class="row nav-links">
+              <div class="col-xs-4  vwAllprdts"><a class="btn btn-primary btn-sm " href="#allproducts">View all Products</a></div>
+              <div class="col-xs-5 col-xs-offset-3  left"><a class="btn btn-primary btn-sm "  href="#addproduct">Add Product</a></div>
+          </div>
+            <div class="row">
+              <div class="col-xs-12 prdtTtle searchPage">Search for a Product</div>
+            </div>
             <div class="input-group">
                 <input id="search_input" type="text" class="form-control">
                 <span class="input-group-btn">
                      <button  id="search_button" class="btn btn-default" type="button">Search!</button>
                 </span>
-          </div>
-          <div class="nav_links">
-              <ul class="nav nav-pills ">
-                <li><a href="#addproduct">Add product</a></li>
-            </ul>
           </div>
         </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
@@ -46,8 +48,8 @@
   <div class="container">
     <div class="header nav_links">
       <ul class="nav nav-pills pull-right">
-        <li><a href="#search">Search to buy</a></li>
-        <li><a href="#addproduct">Add product</a></li>
+        <li><a class="btn btn-primary btn-sm " href="#search">Search to buy</a></li>
+        <li><a class="btn btn-primary btn-sm " href="#addproduct">Add product</a></li>
       </ul>
      <div id="logo" class="text-muted">AgroFarm</div>
     </div>
@@ -67,13 +69,13 @@
                 </div>
         </div>
         <div class="form-group">
-          <label for="prdt_price" class="col-sm-2 control-label">Price *</label>
+          <label for="prdt_price" class="col-sm-2 control-label">Price/Tonne (UGX) *</label>
                 <div class="col-sm-5">
                   <input class="form-control" type="number" id="prdt_price">
                 </div>
         </div>
         <div class="form-group">
-          <label class="col-sm-2 control-label">Quantity *</label>
+          <label class="col-sm-2 control-label">Available Quantity *</label>
                 <div class="col-sm-5">
                   <input class="form-control" type="text" id="prdt_qty">
                 </div>
@@ -111,7 +113,8 @@
   <div class="container">
     <div class="header nav_links">
       <ul class="nav nav-pills pull-right">
-        <li><a href="#search">Search to buy</a></li>
+        <li><a class="btn btn-primary btn-sm " href="#search">Search to buy</a></li>
+        <li><a class="btn btn-primary btn-sm " href="#allproducts">View all Products</a></li>
       </ul>
      <div id="logo" class="text-muted">AgroFarm</div>
     </div>
@@ -134,13 +137,17 @@
 <div class="container">
     <div class="header nav_links">
       <ul class="nav nav-pills pull-right">
-        <li><a href="#addproduct">Add product</a></li>
+        <li><a class="btn btn-primary btn-sm " href="#allproducts">View all Products</a></li>
+        <li><a class="btn btn-primary btn-sm " href="#addproduct">Add product</a></li>
       </ul>
-     <div id="logo" class="text-muted">AgroFarm</div>
+      <div id="logo" class="text-muted">AgroFarm</div>
     </div>
      <div class="jumbotron">
+          <div class="row">
+              <div class="col-xs-12 prdtTtle searchPage">Search results</div>
+          </div>
           <div class="input-group">
-                <input value="<%= search_item %> " type="text" class="form-control">
+                <input value="<%= search_item %>" id="search_input"  type="text" class="form-control">
                 <span class="input-group-btn">
                      <button  id="search_button" class="btn btn-default" type="button">Search!</button>
                 </span>
@@ -153,6 +160,29 @@
      </div>
 </div>
 </script>
+
+<script type="text/template" class="all_products">
+<div class="container">
+    <div class="header nav_links">
+      <ul class="nav nav-pills pull-right">
+        <li><a href="#search">Search to buy</a></li>
+        <li><a class="btn btn-primary btn-sm " href="#addproduct">Add product</a></li>
+      </ul>
+      <div id="logo" class="text-muted">AgroFarm</div>
+    </div>
+     <div class="jumbotron">
+          <div class="row">
+              <div class="col-xs-12 prdtTtle searchPage">All Products</div>
+          </div>
+          <div class="productresults">
+            <ul>
+              <%= productresults %> 
+            </ul>
+          </div>
+     </div>
+</div>
+</script>
+
 
 <script type="text/template" id="product_template">
   <div class="container">

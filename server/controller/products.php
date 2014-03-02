@@ -18,10 +18,13 @@ class Products
 	/*
 	*returns an array of products
 	*/
-	function searchProducts($searchItem)
+	function searchProducts($searchItem,$all=false)
 	{
+		if(($searchItem == "")&&($all==false))
+			return array('success'=>1);
+
 		$products = array();
-		$sql_string = "select products.* from products where  name like ? ";
+		$sql_string = "select products.* from products where name like ? order by dateUploaded desc";
 		$parameter = array('%'.$searchItem.'%');
 
 		$records =  $this->db_connection->select($sql_string,$parameter);
@@ -78,7 +81,6 @@ class Products
 	$product = new Products();
 	$search_item = isset($_POST['itemName'])?$_POST['itemName']:'';
 	$function = isset($_POST['function'])?$_POST['function']:'';
-	$limit = isset($_POST['limit'])?$_POST['function']:'';
 	$prdct = isset($_POST['product'])?$_POST['product']:'';
 
 	if($function == 'search')
@@ -90,6 +92,11 @@ class Products
 	if($function == 'save')
 	{
 		$results =  $product->saveProduct($prdct);
+	    print json_encode($results);
+	}
+	if($function == 'allProducts')
+	{
+	    $results =  $product->searchProducts("",true);
 	    print json_encode($results);
 	}
 
