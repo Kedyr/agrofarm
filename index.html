@@ -148,8 +148,24 @@
 <script type="text/template" class="search_reslt_product">
   <li class="product">
       <div class="prdtName"><a href="#/product/<%= id %>"><%= name %></a></div>
-      <span class="prdtDesc"> <%= description %> </span> <br/>
-      <span class="prdtAttribute">Location:</span> <%= location %> <span class="prdtAttribute">Price: UGX</span> <%= price %> 
+      <div class="table-responsive_">
+        <table class="table searchResultsTbl">
+          <tbody>
+            <tr>
+            <td class="tbllbl"> Description</td>
+            <td class="tblcont"><%= description %> </td>
+            </tr>
+            <tr>
+              <td class="tbllbl"> Price/Tonne</td>
+              <td class="tblcont"><%= price %>/- </td>
+            </tr>
+            <tr>
+              <td class="tbllbl"> Location</td>
+              <td class="tblcont"><%= location %> </td>
+            </tr>
+          </tbody>
+          </table>
+      </div>
   </li>
 </script>
 
@@ -219,30 +235,30 @@
             <div class="productAttributes">
               <div class="table-responsive">
               <span class="prdtTtle"><%=name %></span>
-                <table class="table">
+                <table class="table prdtAttributes">
                   <tbody>
                       <tr>
-                        <td> Description</td>
+                        <td class="prdt_lbl"> Description</td>
                         <td><%= description %> </td>
                       </tr>
                       <tr>
-                        <td> Price</td>
-                        <td><%= price %> </td>
+                        <td class="prdt_lbl"> Price/Tonne</td>
+                        <td><%= price %>/- </td>
                       </tr>
                       <tr>
-                        <td> Quantity</td>
+                        <td class="prdt_lbl"> Quantity</td>
                         <td>UGX:<%= qty %> </td>
                       </tr>
                       <tr>
-                        <td> Contact-Phone</td>
+                        <td class="prdt_lbl"> Contact-Phone</td>
                         <td><%= contact %> </td>
                       </tr>
                       <tr>
-                        <td> Contact-Name</td>
+                        <td class="prdt_lbl"> Contact-Name</td>
                         <td><%= contactName %> </td>
                       </tr>
                       <tr>
-                        <td> Location</td>
+                        <td class="prdt_lbl"> Location</td>
                         <td><%= location %> </td>
                       </tr>
                   </tbody>
